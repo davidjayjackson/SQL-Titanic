@@ -19,7 +19,8 @@ SELECT
 	CASE Pclass 
 	WHEN 1 THEN 'First Class'
 	WHEN 2 THEN 'Second Class'
-	ELSE 'Third Class'
+	WHEN 3 THEN 'Third Class'
+	ELSE 'Not Recorded'
 	END AS 'Cabin Class',
 -- Change case for Gender
 	CASE Sex
@@ -48,14 +49,14 @@ SELECT
 	END AS 'Survived',
 -- Seperate Hometown and state
 RIGHT(Hometown,LEN(Hometown) - CHARINDEX(',',Hometown)) AS [hometown_state_country],
-RIGHT(Destination,LEN(Destination) - CHARINDEX(',',Destination)) AS [destination_state_country],
+RIGHT(Destination,LEN(Destination) - CHARINDEX(',',Destination)) AS [destination_state_country]
 
 -- Split out state and country
 
-LEFT(Hometown,CHARINDEX(',',[hometown])) AS home_state,
-RIGHT([hometown],LEN([hometown]) - CHARINDEX(',',[hometown])) AS [home_country],
-LEFT([Destination],CHARINDEX(',',[destination])) AS destination_state,
-RIGHT([destination],LEN([destination]) - CHARINDEX(',',[destination])) AS [destination_country]
+-- LEFT(Hometown,CHARINDEX(',',[hometown])) AS home_state,
+-- RIGHT([hometown],LEN([hometown]) - CHARINDEX(',',[hometown])) AS [home_country],
+-- LEFT([Destination],CHARINDEX(',',[destination])) AS destination_state,
+-- RIGHT([destination],LEN([destination]) - CHARINDEX(',',[destination])) AS [destination_country]
 INTO titanic_clean
 FROM titanic_dirty;
 

@@ -1,6 +1,7 @@
 SELECT five_year_ceiling,COUNT(*) As Bins
 FROM titanic_clean
-GROUP BY five_year_ceiling;
+GROUP BY five_year_ceiling
+ORDER BY five_year_ceiling ;
 
 SELECT hometown_state_country,COUNT(hometown_state_country) AS count_by_home_country
 FROM Titanic_clean

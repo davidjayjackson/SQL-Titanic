@@ -15,7 +15,8 @@ GROUP BY CEILING(Age/5)*5;
 -- ORDER BY CEILING(Age/5)*5;
 
 -- Histrogram with 10 year bins(Ceiling).
-DROP VIEW ten_year_bins
+DROP VIEW ten_year_bins;
+
 CREATE VIEW ten_year_bins AS
 SELECT 
 CEILING(Age/10)*10 AS ten_years,
@@ -37,7 +38,7 @@ GROUP BY ceiling(Age/10)*10;
 
 -- 10 Year Age Group by Gender: Female
 
-DROP VIEW ten_year_gender_female
+DROP VIEW ten_year_gender_female;
 
 CREATE VIEW ten_year_gender_female AS
 SELECT 
@@ -108,19 +109,21 @@ GROUP BY [Survived];
 
 -- Count by Age and Cabin Class
 
+DROP VIEW count_age_cabin;
 CREATE VIEW count_age_cabin AS
 SELECT
-[Age],[Cabin Class],COUNT(*) AS count_age_cabin
+five_year_ceiling,[Cabin Class],COUNT(*) AS count_age_cabin
 FROM titanic_clean
-GROUP BY [Age],[Cabin Class];
+GROUP BY five_year_ceiling,[Cabin Class];
 
 -- Count by Age and Survival
 
+DROP VIEW count_age_survived;
 CREATE VIEW count_age_survived AS
 SELECT
-[Age],[Survived],COUNT(*) AS count_age_survived
+five_year_ceiling,[Survived],COUNT(*) AS count_age_survived
 FROM titanic_clean
-GROUP BY [Age],[Survived];
+GROUP BY five_year_ceiling,[Survived];
 
 
 
